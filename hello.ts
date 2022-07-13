@@ -39,4 +39,5 @@ const tom: Person = {
   id: 100
 }
 tom.id = 1000
+console.log('第二次提交')
 
