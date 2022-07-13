@@ -40,4 +40,6 @@ const tom: Person = {
 }
 tom.id = 1000
 console.log('第二次提交')
+console.log('第三次提交');
+
 
