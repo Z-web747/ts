@@ -38,8 +38,65 @@ const tom: Person = {
   hobby: 'ok',
   id: 100
 }
-tom.id = 1000
-console.log('第二次提交')
-console.log('第三次提交');
+const numarr: Person[] = [{name: 'jogn', id: 1}]
+// numarr.push('1')
+console.log(numarr)
 
+const personArr: Array<Person> = [{name: 'li', id: 1}]
+const anyArr: any[] = [1,{},'2', false]
 
+function sum(x:number, y: number): number{
+  return x + y
+}
+const sums = function(x:number,y:number): number{
+  return 1
+}
+
+const mySum: (x:number,y:number) => number = function(x:number, y: number): number{
+  return 1
+}
+// 用接口定义函数的形状
+interface SearchFunc {
+  (source: string, substring: string): boolean
+}
+
+const mySearch: SearchFunc = function(source: string, substring: string){
+  return source.indexOf(substring) === -1
+}
+function getName(firstName: string, lastName?: string, thirdName?: string): string{
+  if(lastName){
+     return firstName + lastName+ thirdName
+  }else{
+    return firstName
+  }
+}
+getName('张','三','s')
+
+function buildName( last: string = '史密斯', first: string, ){
+  return first + last
+}
+
+function push(arr: any[], ...rest: any[]){
+  console.log(arr, rest)
+}
+push([1,2,3], 'a','b', 'c')
+enum Week {
+  one,
+  two,
+  three,
+  four
+}
+console.log(Week['0']==='one')
+
+class Animal {
+  public name;
+  constructor(name) {
+      this.name = name;
+  }
+  sayHi() {
+      return `My name is ${this.name}`;
+  }
+}
+
+let a = new Animal('Jack');
+console.log(a.sayHi()); // My name is Jack

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // es5
+
+    // es6
+    class Point{
+      constructor(){
+        this.x ='x'
+        this.y = 'y'
+      }
+      str = 'str'
+      toString(){
+        console.log(this);
+        return this.str + this.x + this.y
+      }
+    }
+    const point = new Point()
+    const point2 = new Point()
+    point2.str = '修改后的str'
+    // console.log(point.toString())
+    console.log(point.hasOwnProperty('x'));
+    console.log(point.hasOwnProperty('str'));
+    console.log(point.hasOwnProperty('toString'));
+    console.log(point.__proto__ === Point.prototype)
+    point.__proto__.foo = 'foo'
+    console.log(point, point2);
+
+    class Counter {
+      _count = 0
+      get(){
+        console.log(this._count)
+      }
+    }
+    class Counter2 {
+      constructor(){
+        this._count = 0
+      }
+      get() {
+        console.log(this._count)
+      }
+    }
+    console.dir(Counter, Counter2)
+    const count1 = new Counter()
+    const count2 = new Counter2()
+    console.log(count1, count2);
+    let fnName = 'fn'
+    class Person {
+      [fnName](){
+        console.log(this)
+      }
+    }
+
+    Person.cat = 'cat'
+    console.log(new Person().cat)
+    const myClass = class Person1 {
+      _name = 'person1'
+      
+    }
+    var _name = '_name'
+    myClass.fn = () => {
+      console.log(this._name)
+    }
+    console.dir(myClass.fn())
+
+    class Person2{
+      constructor(){
+        this._name = 'person2'
+      }
+      HH = 'hh'
+      toString(){
+        console.log(this)
+      }
+      iantou = () => {
+        console.log(this)
+      }
+    }
+    const p2 = new Person2()
+    const iantou = p2.iantou
+    iantou()
+    const toString = p2.toString
+    toString()
+    console.log(Person2.prototype);
+    console.log(p2);
+    console.log('----------');
+    class Person3 {
+      static bar = 'bar'
+      static foo(){
+        this.toString()
+      }
+      static toString(){
+        console.log('hello')
+      }
+      toString(){
+        console.log('world')
+      }
+    }
+    const p3 = new Person3()
+    // p3.foo()
+    Person3.foo()
+    console.log(p3.bar);
+    console.log(Person3.bar);
+  </script>
+</body>
+</html>
